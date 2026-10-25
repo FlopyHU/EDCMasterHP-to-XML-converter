@@ -21,24 +21,49 @@
 
     <style>
         body { background-color: #2c2f33; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: #23272a; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .container { max-width: 900px; margin: 0 auto; background: #23272a; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: relative; }
+        
+        .header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .header-flex h2 { margin: 0; }
+        
+        .tutorial-btn { background-color: #23272a; color: #faa61a; border: 1px solid #faa61a; padding: 8px 14px; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: bold; transition: all 0.2s; width: auto; }
+        .tutorial-btn:hover { background-color: #faa61a; color: #23272a; }
+
         textarea { width: 100%; height: 150px; background: #1c1c1c; color: #43b581; border: 1px solid #444; border-radius: 4px; padding: 10px; font-family: monospace; resize: vertical; box-sizing: border-box; margin-bottom: 10px; }
         .input-group { margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
         input[type="text"] { background: #1c1c1c; color: #ffffff; border: 1px solid #444; border-radius: 4px; padding: 10px; font-size: 14px; width: 100%; box-sizing: border-box; }
         .note { font-size: 12px; color: #faa61a; margin-bottom: 10px; }
+        
         button { background-color: #7289da; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; width: 100%; transition: background-color 0.2s; }
         button:hover { background-color: #5b6eae; }
+        
         #log { margin-top: 15px; padding: 10px; background: #1c1c1c; border-left: 4px solid #7289da; min-height: 20px; font-size: 14px; font-weight: bold; white-space: pre-wrap; }
         
         /* Preview Section Styles */
         #previewContainer { margin-top: 20px; display: none; }
         .preview-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; }
         .map-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; max-height: 400px; overflow-y: auto; padding-right: 5px; }
-        .map-card { background: #2c2f33; border-left: 4px solid #43b581; padding: 12px; border-radius: 4px; font-size: 13px; }
+        .map-card { background: #2c2f33; border-left: 4px solid #43b581; padding: 12px; border-radius: 4px; font-size: 13px; cursor: pointer; transition: transform 0.1s, background-color 0.2s; }
+        .map-card:hover { background-color: #2f3338; transform: translateY(-2px); }
         .map-card strong { color: #7289da; font-size: 15px; display: block; margin-bottom: 4px; }
         .map-card .dim { color: #99aab5; font-size: 12px; margin-top: 6px; display: block; }
         
-        /* Scrollbar for the grid */
+        /* Modal Styles */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 20px; box-sizing: border-box; }
+        .modal-content { background: #23272a; max-width: 600px; width: 100%; border: 1px solid #444; border-radius: 8px; padding: 25px; box-shadow: 0 8px 16px rgba(0,0,0,0.5); position: relative; max-height: 90vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #99aab5; font-size: 24px; cursor: pointer; width: auto; padding: 0; }
+        .modal-close:hover { color: #ffffff; background: none; }
+        
+        .modal-body h3 { margin-top: 0; color: #7289da; }
+        .modal-body ol { padding-left: 20px; line-height: 1.6; color: #dcddde; }
+        .modal-body code { background: #1c1c1c; padding: 2px 6px; border-radius: 4px; color: #faa61a; font-family: monospace; }
+        
+        /* Map Inspect Modal Layout */
+        .inspect-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; background: #1c1c1c; padding: 15px; border-radius: 6px; border: 1px solid #333; }
+        .inspect-item span { display: block; color: #99aab5; font-size: 12px; }
+        .inspect-item strong { color: #43b581; font-size: 16px; font-family: monospace; }
+
+        /* Scrollbar for grid */
         .map-grid::-webkit-scrollbar { width: 8px; }
         .map-grid::-webkit-scrollbar-track { background: #1c1c1c; border-radius: 4px; }
         .map-grid::-webkit-scrollbar-thumb { background: #7289da; border-radius: 4px; }
@@ -46,8 +71,11 @@
 </head>
 <body>
     <div class="container">
-        <h2>EDCMasterHP HTML to XDF Converter</h2>
-        <p>Paste the raw HTML source containing the map list table below. The tool will parse it automatically.</p>
+        <div class="header-flex">
+            <h2>EDCMasterHP HTML to XDF Converter</h2>
+            <button class="tutorial-btn" onclick="openTutorial()">📖 How to Use / Tutorial</button>
+        </div>
+        <p>Paste the raw HTML source containing the map list table below. Click any parsed map card to inspect details.</p>
         
         <textarea id="htmlInput" placeholder="Paste HTML here..."></textarea>
         
@@ -69,8 +97,91 @@
         <button onclick="downloadXDF()" style="margin-top: 10px;">Generate & Download XDF</button>
     </div>
 
+    <!-- Tutorial Modal -->
+    <div id="tutorialModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTutorial()">&times;</button>
+            <div class="modal-body">
+                <h3>How to Use EDCMasterHP to XDF Converter</h3>
+                <p>This tool lets you convert your analyzed map definitions straight into a TunerPro-compatible XDF file without manual data entry.</p>
+                <ol>
+                    <li>Log into your <strong>EDCMasterHP</strong> account and open your analyzed ECU map list.</li>
+                    <li>Press <code>Ctrl + U</code> (or right-click the page background and choose <strong>"View Page Source"</strong>) to open the raw HTML code in a new tab.</li>
+                    <li>Select everything using <code>Ctrl + A</code> and copy it using <code>Ctrl + C</code>.</li>
+                    <li>Come back here, paste the code into the text area using <code>Ctrl + V</code>. The tool will parse all maps instantly.</li>
+                    <li>Type a custom filename if desired, then click <strong>Generate & Download XDF</strong>.</li>
+                    <li>Open <strong>TunerPro</strong>, load your original <code>.bin</code> file, and import your newly generated `.xdf` file!</li>
+                </ol>
+                <p style="margin-top: 20px; font-size: 13px; color: #99aab5;">
+                    Need more details? Check out the full documentation on the <a href="https://github.com/FlopyHU/EDCMasterHP-to-XML-converter/tree/main" target="_blank" style="color: #7289da;">GitHub Repository</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Inspector Modal -->
+    <div id="inspectModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeInspect()">&times;</button>
+            <div class="modal-body">
+                <h3 id="inspectMapTitle">Map Details</h3>
+                <p style="color: #99aab5; font-size: 13px;">Inspection view of the selected map table structure (read-only).</p>
+                
+                <div class="inspect-meta">
+                    <div class="inspect-item">
+                        <span>Hex Address</span>
+                        <strong id="inspectAddr">-</strong>
+                    </div>
+                    <div class="inspect-item">
+                        <span>X-Axis Size (Columns)</span>
+                        <strong id="inspectX">-</strong>
+                    </div>
+                    <div class="inspect-item">
+                        <span>Y-Axis Size (Rows)</span>
+                        <strong id="inspectY">-</strong>
+                    </div>
+                    <div class="inspect-item">
+                        <span>Z-Axis Data Bits</span>
+                        <strong>16-bit (Signed/Unsigned)</strong>
+                    </div>
+                </div>
+
+                <div style="background: #1c1c1c; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 13px; color: #faa61a;">
+                    XDF Status: Configured with standard Motorola byte order &amp; V1.80 XML layout standards. Ready for export.
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         let parsedMaps = [];
+
+        function openTutorial() {
+            document.getElementById('tutorialModal').style.display = 'flex';
+        }
+
+        function closeTutorial() {
+            document.getElementById('tutorialModal').style.display = 'none';
+        }
+
+        function inspectMap(hexAddr, mapName, xSize, ySize) {
+            document.getElementById('inspectMapTitle').innerText = mapName;
+            document.getElementById('inspectAddr').innerText = "0x" + hexAddr;
+            document.getElementById('inspectX').innerText = xSize + " elements";
+            document.getElementById('inspectY').innerText = ySize + " elements";
+            document.getElementById('inspectModal').style.display = 'flex';
+        }
+
+        function closeInspect() {
+            document.getElementById('inspectModal').style.display = 'none';
+        }
+
+        // Close modals when clicking outside content area
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = 'none';
+            }
+        }
 
         document.getElementById('htmlInput').addEventListener('input', function() {
             const html = this.value;
@@ -113,15 +224,15 @@
                 }
             });
 
-            logDiv.innerHTML = `Success: Automatically found ${parsedMaps.length} valid maps. Ready for export.`;
+            logDiv.innerHTML = `Success: Automatically found ${parsedMaps.length} valid maps. Click any card below to preview.`;
             logDiv.style.borderLeftColor = "#43b581";
             
             previewTitle.innerText = `Found Maps (${parsedMaps.length})`;
             mapGrid.innerHTML = parsedMaps.map(m => `
-                <div class="map-card">
+                <div class="map-card" onclick="inspectMap('${m.hexAddr}', '${m.mapName.replace(/'/g, "\\'")}', ${m.xSize}, ${m.ySize})">
                     <strong>0x${m.hexAddr}</strong>
                     ${m.mapName}
-                    <span class="dim">Matrix: ${m.xSize} columns (X) by ${m.ySize} rows (Y)</span>
+                    <span class="dim">Matrix: ${m.xSize} cols × ${m.ySize} rows</span>
                 </div>
             `).join('');
             
@@ -138,7 +249,6 @@
             if (!filename) filename = "EDCMaster_Export";
             filename = filename.replace(/[^a-zA-Z0-9_\-]/g, '_');
 
-            // Generating the Header identical to your template
             let xdf = `<?xml version="1.0"?>\n<XDFFORMAT version="1.80">\n`;
             xdf += `  <XDFHEADER>\n`;
             xdf += `    <flags>0x1</flags>\n`;
