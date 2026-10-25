@@ -1,0 +1,28 @@
+MIT License with Attribution & Commercial Restrictions (Flopy's Custom License)
+
+Copyright (c) 2026 FlopyHU
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+1. ATTRIBUTION: 
+   - Visible, prominent credit must be given to the original software creator (FlopyHU) in all copies, substantial portions, forks, or derivative works. This credit must not be hidden away in obscure sub-files.
+   - Visible credit and a reference must also be given to EDCMasterHP (https://www.edcmasterhp.com) as the foundational ECU analysis and map-data platform upon which this utility depends.
+
+2. COMMERCIAL RESALE RESTRICTIONS: 
+   - You may NOT sell this software as-is, or with minor modifications/styling changes, as your own commercial product. 
+   - You may only distribute or sell a derivative product commercially if you have added substantial, major new features of your own design. Even in that case, explicit visible credit to both Flopy and EDCMasterHP must remain intact.
+
+3. NO AFFILIATION: This tool is an independent community utility created to assist users and is not officially affiliated with, endorsed by, or sponsored by EDCMasterHP. 
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
