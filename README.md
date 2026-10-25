@@ -1,3 +1,7 @@
+![Tech](https://img.shields.io/badge/Tech-HTML5%20%7C%20JavaScript-yellow.svg)
+![Target](https://img.shields.io/badge/Target-TunerPro%20XDF-blue.svg)
+![License](https://img.shields.io/badge/license-Open_Source-green.svg)
+
 # EDCMasterHP to TunerPro XDF Converter
 
 A quick, browser-based tool that turns map lists from [EDCMasterHP](https://www.edcmasterhp.com/) into ready-to-use XDF files for TunerPro. 
@@ -33,6 +37,12 @@ Since EDCMasterHP displays your map data inside the browser, this tool reads the
 
 ---
 
+## Important Note on Limitations & Axes
+* **Axis Scaling & Conversion Numbers:** The converter reads the main map directory catalog from the EDCMasterHP interface (which gives you all map titles, hex addresses, and matrix dimensions like `16x16`). However, individual conversion factors, axis labels, and precise physical unit values are stored separately inside individual map sub-pages and are not exposed on the front-page HTML code.
+* **What this means for you:** The tool handles the heavy lifting by instantly compiling all map headers and structures into a clean XDF file. Once imported into TunerPro, you will still want to double-check your map configurations and apply your preferred axis definitions/conversions where necessary, but the hard part of cataloging every address by hand is completely done for you.
+
+---
+
 ### Privacy & Security
 Everything runs entirely inside your browser (client-side). Your map code, addresses, and files never get uploaded to any external server.
 
@@ -42,5 +52,5 @@ Everything runs entirely inside your browser (client-side). Your map code, addre
 This project is open source. You can check the full usage permissions, fork rules, and attribution guidelines in the [LICENSE](https://github.com/FlopyHU/EDCMasterHP-to-XML-converter/blob/main/LICENSE) file.
 
 ### A Note to EDCMasterHP & Developers
-* **EDCMasterHP:** If you guys see this and want to link the tool—or build a native export button into your site to save users time—you have total permission! The goal is just to make the workflow smoother for everyone.
-* **Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both Flopy and EDCMasterHP. Please don't repackage and sell it as a basic cash-grab.
+- **EDCMasterHP:** If you guys see this and want to link the tool—or build a native export button into your site to save users time—you have total permission! The goal is just to make the workflow smoother for everyone.
+- **Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both Flopy and EDCMasterHP. Please don't repackage and sell it as a basic cash-grab.
