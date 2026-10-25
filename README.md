@@ -8,6 +8,18 @@ A quick, browser-based tool that turns map lists from [EDCMasterHP](https://www.
 
 **Try it live here:** [https://flopyhu.github.io/EDCMasterHP-to-XML-converter/](https://flopyhu.github.io/EDCMasterHP-to-XML-converter/)
 
+---
+
+## 📖 The Story Behind This Tool
+
+This whole project started with a single check engine light and a limp mode on a diesel Opel Astra H Caravan (running a Z17DTL engine block with a Z17DTH turbo and ECU). I was sick of the EGR throwing codes, so I grabbed my MPPS cable and started digging. Every commercial tuning service wanted a fortune just to change a couple of numbers, and I wasn't about to pay a fortune for that. 
+
+Then I found EDCMasterHP, which worked wonders—except I spent **two full days** manually typing out and transcription-mapping every single map address into TunerPro by hand. Now that I have to work on some of my friends' cars too, I definitely didn't want to spend another two days inputting maps. So, I built this browser tool to do the heavy lifting automatically. 
+
+*(Truth be told... I might also be getting a little bit addicted to uploading projects to GitHub.)*
+
+---
+
 ### Disclaimer & Credits
 This is an unofficial community tool and isn't affiliated with or endorsed by EDCMasterHP. 
 
@@ -38,8 +50,8 @@ Since EDCMasterHP displays your map data inside the browser, this tool reads the
 ---
 
 ## Important Note on Limitations & Axes
-* **Axis Scaling & Conversion Numbers:** The converter reads the main map directory catalog from the EDCMasterHP interface (which gives you all map titles, hex addresses, and matrix dimensions like `16x16`). However, individual conversion factors, axis labels, and precise physical unit values are stored separately inside individual map sub-pages and are not exposed on the front-page HTML code.
-* **What this means for you:** The tool handles the heavy lifting by instantly compiling all map headers and structures into a clean XDF file. Once imported into TunerPro, you will still want to double-check your map configurations and apply your preferred axis definitions/conversions where necessary, but the hard part of cataloging every address by hand is completely done for you.
+- **Axis Scaling & Conversion Numbers:** The converter reads the main map directory catalog from the EDCMasterHP interface (which gives you all map titles, hex addresses, and matrix dimensions like `16x16`). However, individual conversion factors, axis labels, and precise physical unit values are stored separately inside individual map sub-pages and are not exposed on the front-page HTML code.
+- **What this means for you:** The tool handles the heavy lifting by instantly compiling all map headers and structures into a clean XDF file. Once imported into TunerPro, you will still want to double-check your map configurations and apply your preferred axis definitions/conversions where necessary, but the hard part of cataloging every address by hand is completely done for you.
 
 ---
 
@@ -53,4 +65,4 @@ This project is open source. You can check the full usage permissions, fork rule
 
 ### A Note to EDCMasterHP & Developers
 - **EDCMasterHP:** If you guys see this and want to link the tool—or build a native export button into your site to save users time—you have total permission! The goal is just to make the workflow smoother for everyone.
-- **Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both FlopyHU and EDCMasterHP. Please don't repackage and sell it as a basic cash-grab.
+- **Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both FLOPYHU and EDCMasterHP. Please don't repackage and sell it as a basic cash-grab.
