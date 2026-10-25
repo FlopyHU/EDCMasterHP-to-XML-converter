@@ -34,33 +34,27 @@ A quick, browser-based tool that turns map lists from [EDCMasterHP](https://www.
 Since EDCMasterHP displays your map data inside the browser, this tool reads the raw webpage code and reformats it into TunerPro's XML structure. 
 
 ### Step 1: Copy your map page source
-* Log into your [EDCMasterHP](https://www.edcmasterhp.com/) account and open your analyzed ECU map list.
-* Press **`Ctrl + U`** on your keyboard (or right-click the page background and choose "View Page Source") to open the raw HTML in a new tab.
-* Select everything (**`Ctrl + A`**) and copy it (**`Ctrl + C`**).
+Log into your [EDCMasterHP](https://www.edcmasterhp.com/) account, open your analyzed ECU map list, press **`Ctrl + U`** on your keyboard (or right-click the page background and choose "View Page Source") to open the raw HTML in a new tab, and select everything (**`Ctrl + A`**) to copy it (**`Ctrl + C`**).
 
 ### Step 2: Convert to XDF
-* Head over to the [Web Converter](https://flopyhu.github.io/EDCMasterHP-to-XML-converter/).
-* Paste the HTML into the text box (**`Ctrl + V`**). The tool parses it instantly and shows you a grid of all detected maps.
-* Type a clean export filename if you want (stick to letters, numbers, and underscores to keep TunerPro happy).
-* Hit **Generate & Download XDF**.
+Head over to the [Web Converter](https://flopyhu.github.io/EDCMasterHP-to-XML-converter/), paste the HTML into the text box (**`Ctrl + V`**) where the tool parses it instantly and shows you a grid of all detected maps, type a clean export filename if you want (sticking to letters, numbers, and underscores to keep TunerPro happy), and hit **Generate & Download XDF**.
 
 ### Step 3: Load it into TunerPro
-* Open TunerPro and load your original `.bin` file via **File -> Open Bin...**
-* Load your newly downloaded XDF via **XDF -> Select XDF...**
-* Your parameter tree will populate with all your maps, correct matrix dimensions, and byte orders.
+Open TunerPro, load your original `.bin` file via **File -> Open Bin...**, load your newly downloaded XDF via **XDF -> Select XDF...**, and your parameter tree will populate with all your maps, correct matrix dimensions, and byte orders.
 
 ---
 
 > [!NOTE]
 > ## ⚠️ Important Note on Limitations & Axes
-> * **Axis Scaling & Conversion Numbers:** The converter reads the main map directory catalog from the EDCMasterHP interface (which gives you all map titles, hex addresses, and matrix dimensions like `16x16`). However, individual conversion factors, axis labels, and precise physical unit values are stored separately inside individual map sub-pages and are not exposed on the front-page HTML code.
-> * **What this means for you:** The tool handles the heavy lifting by instantly compiling all map headers and structures into a clean XDF file. Once imported into TunerPro, you will still want to double-check your map configurations and apply your preferred axis definitions/conversions where necessary, but the hard part of cataloging every address by hand is completely done for you.
+> **Axis Scaling & Conversion Numbers:** The converter reads the main map directory catalog from the EDCMasterHP interface, giving you all map titles, hex addresses, and matrix dimensions like `16x16`. However, individual conversion factors, axis labels, and precise physical unit values are stored separately inside individual map sub-pages and are not exposed on the front-page HTML code. 
+> 
+> **What this means for you:** The tool handles the heavy lifting by instantly compiling all map headers and structures into a clean XDF file. Once imported into TunerPro, you will still want to double-check your map configurations and apply your preferred axis definitions or conversions where necessary, but the hard part of cataloging every address by hand is completely done for you.
 
 ---
 
 > [!TIP]
 > ### 🔒 Privacy & Security
-> Everything runs entirely inside your browser (client-side). Your map code, addresses, and files never get uploaded to any external server.
+> Everything runs entirely inside your browser (client-side), meaning your map code, addresses, and files never get uploaded to any external server.
 
 ---
 
@@ -68,5 +62,6 @@ Since EDCMasterHP displays your map data inside the browser, this tool reads the
 This project is open source. You can check the full usage permissions, fork rules, and attribution guidelines in the [LICENSE](https://github.com/FlopyHU/EDCMasterHP-to-XML-converter/blob/main/LICENSE) file.
 
 ### 💡 A Note to EDCMasterHP & Developers
-* **EDCMasterHP:** If you guys see this and want to link the tool—or build a native export button into your site to save users time—you have total permission! The goal is just to make the workflow smoother for everyone.
-* **Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both FlopyHU and EDCMasterHP. Please don't repackage and sell it as a basic cash-grab.
+**EDCMasterHP:** If you guys see this and want to link the tool, or build a native export button into your site to save users time, you have total permission, because the goal is just to make the workflow smoother for everyone. 
+
+**Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both FlopyHU and EDCMasterHP, and please don't repackage and sell it as a basic cash-grab.
