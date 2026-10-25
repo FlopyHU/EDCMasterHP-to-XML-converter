@@ -53,4 +53,4 @@ This project is open source. You can check the full usage permissions, fork rule
 
 ### A Note to EDCMasterHP & Developers
 - **EDCMasterHP:** If you guys see this and want to link the tool—or build a native export button into your site to save users time—you have total permission! The goal is just to make the workflow smoother for everyone.
-- **Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both FLOPYHU and EDCMasterHP. Please don't repackage and sell it as a basic cash-grab.
+- **Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both FlopyHU and EDCMasterHP. Please don't repackage and sell it as a basic cash-grab.
