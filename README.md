@@ -1,49 +1,46 @@
 # EDCMasterHP to TunerPro XDF Converter
 
-A fast, client-side web tool designed to convert map definitions from [EDCMasterHP](https://www.edcmasterhp.com/) into ready-to-use XDF files for TunerPro. 
+A quick, browser-based tool that turns map lists from [EDCMasterHP](https://www.edcmasterhp.com/) into ready-to-use XDF files for TunerPro. 
 
-**Access the live tool here:** [https://flopyhu.github.io/EDCMasterHP-to-XML-converter/](https://flopyhu.github.io/EDCMasterHP-to-XML-converter/)
+**Try it live here:** [https://flopyhu.github.io/EDCMasterHP-to-XML-converter/](https://flopyhu.github.io/EDCMasterHP-to-XML-converter/)
 
-### ⚠️ Disclaimer & Credits
-**This is an unofficial community tool and is NOT affiliated with, endorsed by, or sponsored by EDCMasterHP.** 
+### Disclaimer & Credits
+This is an unofficial community tool and isn't affiliated with or endorsed by EDCMasterHP. 
 
-EDCMasterHP provides an incredible service to the tuning community by analyzing ECUs and providing highly accurate map definitions. Please support their business! This tool was created solely out of respect for their platform, with the goal of saving tuners hours of manual data entry. It does not bypass their security, it does not provide free maps, and it requires you to legally access your own map data via your EDCMasterHP account. All map data, addresses, and conversion factors remain the intellectual property of EDCMasterHP.
+EDCMasterHP does an amazing job providing accurate map definitions for ECUs, so please support their platform! This tool was simply built to save tuners from spending hours typing out map data by hand. It doesn't bypass any security, doesn't hand out free maps, and requires you to legitimately log into your own EDCMasterHP account to grab your data. All map addresses and calculation logic remain the property of EDCMasterHP.
 
 ---
 
-## 📖 How to Use the Converter
+## How to Use It
 
-Because EDCMasterHP displays your map data securely inside a web browser, this tool works by reading the raw website code (HTML) and translating it into TunerPro's XML format (XDF). 
+Since EDCMasterHP displays your map data inside the browser, this tool reads the raw webpage code and reformats it into TunerPro's XML structure. 
 
-Follow these steps for the fastest extraction:
+### Step 1: Copy your map page source
+1. Log into your [EDCMasterHP](https://www.edcmasterhp.com/) account and open your analyzed ECU map list.
+2. Press **`Ctrl + U`** on your keyboard (or right-click the page background and choose "View Page Source") to open the raw HTML in a new tab.
+3. Select everything (**`Ctrl + A`**) and copy it (**`Ctrl + C`**).
 
-**Step 1: Get Your Map Data**
-1. Log into your [EDCMasterHP](https://www.edcmasterhp.com/) account.
-2. Upload your ECU `.bin` file and navigate to the **ECU Analyze** page where your list of maps is displayed.
-3. Once the table containing your map addresses loads, press **`Ctrl + U`** on your keyboard (or right-click the background and select "View Page Source"). This opens the raw HTML code in a new tab.
-4. Press **`Ctrl + A`** to highlight all the code.
-5. Press **`Ctrl + C`** to copy it.
+### Step 2: Convert to XDF
+1. Head over to the [Web Converter](https://flopyhu.github.io/EDCMasterHP-to-XML-converter/).
+2. Paste the HTML into the text box (**`Ctrl + V`**). The tool parses it instantly and shows you a grid of all detected maps.
+3. Type a clean export filename if you want (stick to letters, numbers, and underscores to keep TunerPro happy).
+4. Hit **Generate & Download XDF**.
 
-**Step 2: Convert to XDF**
-1. Open the [Web Converter](https://flopyhu.github.io/EDCMasterHP-to-XML-converter/).
-2. Click inside the large text box and press **`Ctrl + V`** to paste your HTML.
-3. The tool will automatically process the code in real-time and display a grid of all successfully detected maps.
-4. Type a custom name for your export file in the "Export Filename" box. *Use only letters, numbers, and underscores to prevent TunerPro import errors.*
-5. Click **Generate & Download XDF**. Your new `.xdf` file will download immediately.
-
-**Step 3: Open in TunerPro**
-1. Open TunerPro.
-2. Go to **File -> Open Bin...** and select your original ECU `.bin` file.
-3. Go to **XDF -> Select XDF...** and choose the newly downloaded `.xdf` file.
-4. Your Parameter Tree will populate with all the maps, complete with the correct matrix sizes, conversion math, and byte-order configuration. 
+### Step 3: Load it into TunerPro
+1. Open TunerPro and load your original `.bin` file via **File -> Open Bin...**
+2. Load your newly downloaded XDF via **XDF -> Select XDF...**
+3. Your parameter tree will populate with all your maps, correct matrix dimensions, and byte orders.
 
 ---
 
 ### Privacy & Security
-This tool operates 100% client-side. When you paste your HTML code, it is processed entirely within your own web browser. No map addresses, file data, or personal account information are ever uploaded to an external server.
+Everything runs entirely inside your browser (client-side). Your map code, addresses, and files never get uploaded to any external server.
 
 ---
 
-### 🤝 A Note to EDCMasterHP & Community Developers
-* **EDCMasterHP:** If the team at EDCMasterHP sees this and wants to link this tool—or natively integrate an export option to help users save time—you have my full permission! The goal is purely to enhance the community experience and complement your platform.
-* **Forks & Contributions:** Everyone is free to fork this project and publish new versions under the terms of the project license, provided that **visible credit to both Flopy and EDCMasterHP** is strictly maintained. Do not repackage and sell this tool as your own without adding substantial new features.
+### License & Open Source
+This project is open source. You can check the full usage permissions, fork rules, and attribution guidelines in the [LICENSE](https://github.com/FlopyHU/EDCMasterHP-to-XML-converter/blob/main/LICENSE) file.
+
+### A Note to EDCMasterHP & Developers
+* **EDCMasterHP:** If you guys see this and want to link the tool—or build a native export button into your site to save users time—you have total permission! The goal is just to make the workflow smoother for everyone.
+* **Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both Flopy and EDCMasterHP. Please don't repackage and sell it as a basic cash-grab.
