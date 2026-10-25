@@ -1,0 +1,37 @@
+# Unlike my EE-Core project where a file was created completely by accident 
+# and left as an easter egg, this file is actually here on purpose for 
+# search engine crawlers (the web "robots") so they can index this page 
+# and help people find it easily!
+#
+# And since we called him Gary last time, here is Gary the cat who wanders 
+# through my projects:
+#
+#     /\_____/\
+#    /  o   o  \
+#   ( ==  ^  == )
+#    )         (
+#   (           )
+#  ( (  )    (  ) )
+# (__(__)___(__)__)
+#
+#    ____    _    ____  __   __
+#   / ___|  / \  |  _ \ \ \ / /
+#  | |  _  / _ \ | |_) | \ V / 
+#  | |_|[ ]/ ___ \|  _ <   | |  
+#   \____/_/   \_\_| \_\  |_|  
+#
+#   _____ _   _ _____ 
+#  |_   _| | | | ____|
+#    | | | |_| |  _|  
+#    | | |  _  | |___ 
+#    |_| |_| |_|_____|
+#
+#    ____    _    _____ 
+#   / ___|  / \  |_   _|
+#  | |     / _ \   | |  
+#  | |___ / ___ \  | |  
+#   \____/_/   \_\ |_|  
+#
+
+User-agent: *
+Allow: /
