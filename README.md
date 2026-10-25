@@ -13,9 +13,9 @@ A quick, browser-based tool that turns map lists from [EDCMasterHP](https://www.
 
 > [!NOTE]
 > ## 🚗 The Story Behind This Tool
-> This whole project started with a single check engine light and a limp mode on a diesel Opel Astra H Caravan (running a Z17DTL engine block with a Z17DTH turbo and ECU). I was sick of the EGR throwing codes, so I grabbed my MPPS cable and started digging. Every commercial tuning service wanted a fortune just to change a couple of numbers, and I wasn't about to pay a fortune for that. 
+> This whole project started with a single check engine light and a limp mode on a diesel Opel Astra H Caravan, running a Z17DTL engine block with a Z17DTH turbo and ECU. I was sick of the EGR throwing codes, so I grabbed my MPPS cable and started digging. Every commercial tuning service wanted a fortune just to change a couple of numbers, and I wasn't about to pay a fortune for that. 
 > 
-> Then I found EDCMasterHP, which worked wonders—except I spent **two full days** manually typing out and transcription-mapping every single map address into TunerPro by hand. Now that I have to work on some of my friends' cars too, I definitely didn't want to spend another two days inputting maps. So, I built this browser tool to do the heavy lifting automatically and uploaded it for everyone to use. 
+> Then I found EDCMasterHP, which worked wonders, except I spent **two full days** manually typing out and transcription-mapping every single map address into TunerPro by hand. Now that I have to work on some of my friends' cars too, I definitely didn't want to spend another two days inputting maps. So, I built this browser tool to do the heavy lifting automatically and uploaded it for everyone to use. 
 > 
 > *(Truth be told... I might also be getting a little bit addicted to uploading projects to GitHub.)*
 
@@ -37,10 +37,10 @@ Since EDCMasterHP displays your map data inside the browser, this tool reads the
 Log into your [EDCMasterHP](https://www.edcmasterhp.com/) account, open your analyzed ECU map list, press **`Ctrl + U`** on your keyboard (or right-click the page background and choose "View Page Source") to open the raw HTML in a new tab, and select everything (**`Ctrl + A`**) to copy it (**`Ctrl + C`**).
 
 ### Step 2: Convert to XDF
-Head over to the [Web Converter](https://flopyhu.github.io/EDCMasterHP-to-XML-converter/), paste the HTML into the text box (**`Ctrl + V`**) where the tool parses it instantly and shows you a grid of all detected maps, type a clean export filename if you want (sticking to letters, numbers, and underscores to keep TunerPro happy), and hit **Generate & Download XDF**.
+Head over to the [Web Converter](https://flopyhu.github.io/EDCMasterHP-to-XML-converter/), paste the HTML into the text box (**`Ctrl + V`**) where the tool parses it instantly and shows you a grid of all detected maps, type a clean export filename if you want, sticking to letters, numbers, and underscores to keep TunerPro happy, and hit **Generate & Download XDF**.
 
 ### Step 3: Load it into TunerPro
-Open TunerPro, load your original `.bin` file via **File -> Open Bin...**, load your newly downloaded XDF via **XDF -> Select XDF...**, and your parameter tree will populate with all your maps, correct matrix dimensions, and byte orders.
+Open TunerPro, load your original `.bin` file via File, Open Bin, load your newly downloaded XDF via XDF, Select XDF, and your parameter tree will populate with all your maps, correct matrix dimensions, and byte orders.
 
 ---
 
@@ -54,7 +54,7 @@ Open TunerPro, load your original `.bin` file via **File -> Open Bin...**, load 
 
 > [!TIP]
 > ### 🔒 Privacy & Security
-> Everything runs entirely inside your browser (client-side), meaning your map code, addresses, and files never get uploaded to any external server.
+> Everything runs entirely inside your browser on the client-side, meaning your map code, addresses, and files never get uploaded to any external server.
 
 ---
 
