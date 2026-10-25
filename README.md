@@ -41,3 +41,9 @@ Follow these steps for the fastest extraction:
 
 ### Privacy & Security
 This tool operates 100% client-side. When you paste your HTML code, it is processed entirely within your own web browser. No map addresses, file data, or personal account information are ever uploaded to an external server.
+
+---
+
+### 🤝 A Note to EDCMasterHP & Community Developers
+* **EDCMasterHP:** If the team at EDCMasterHP sees this and wants to link this tool—or natively integrate an export option to help users save time—you have my full permission! The goal is purely to enhance the community experience and complement your platform.
+* **Forks & Contributions:** Everyone is free to fork this project and publish new versions under the terms of the project license, provided that **visible credit to both Flopy and EDCMasterHP** is strictly maintained. Do not repackage and sell this tool as your own without adding substantial new features.
