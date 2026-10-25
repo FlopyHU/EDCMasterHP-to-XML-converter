@@ -14,7 +14,7 @@ A quick, browser-based tool that turns map lists from [EDCMasterHP](https://www.
 
 This whole project started with a single check engine light and a limp mode on a diesel Opel Astra H Caravan (running a Z17DTL engine block with a Z17DTH turbo and ECU). I was sick of the EGR throwing codes, so I grabbed my MPPS cable and started digging. Every commercial tuning service wanted a fortune just to change a couple of numbers, and I wasn't about to pay a fortune for that. 
 
-Then I found EDCMasterHP, which worked wonders—except I spent **two full days** manually typing out and transcription-mapping every single map address into TunerPro by hand. Now that I have to work on some of my friends' cars too, I definitely didn't want to spend another two days inputting maps. So, I built this browser tool to do the heavy lifting automatically. 
+Then I found EDCMasterHP, which worked wonders, except I spent **two full days** manually typing out and transcription-mapping every single map address into TunerPro by hand. Now that I have to work on some of my friends' cars too, I definitely didn't want to spend another two days inputting maps. So, I built this browser tool to do the heavy lifting automatically. 
 
 *(Truth be told... I might also be getting a little bit addicted to uploading projects to GitHub.)*
 
@@ -64,5 +64,5 @@ Everything runs entirely inside your browser (client-side). Your map code, addre
 This project is open source. You can check the full usage permissions, fork rules, and attribution guidelines in the [LICENSE](https://github.com/FlopyHU/EDCMasterHP-to-XML-converter/blob/main/LICENSE) file.
 
 ### A Note to EDCMasterHP & Developers
-- **EDCMasterHP:** If you guys see this and want to link the tool—or build a native export button into your site to save users time—you have total permission! The goal is just to make the workflow smoother for everyone.
+- **EDCMasterHP:** If you guys see this and want to link the tool or build a native export button into your site to save users time—you have total permission! The goal is just to make the workflow smoother for everyone.
 - **Forks:** Feel free to fork and improve the project, as long as proper visible credit is given to both FLOPYHU and EDCMasterHP. Please don't repackage and sell it as a basic cash-grab.
